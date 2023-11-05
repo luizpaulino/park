@@ -5,12 +5,12 @@ Estabelecendo um balanceamento de carga devido à possibilidade de expandir hori
 
 Comumente, as pessoas pensam que, devido à grande quantidade de mensagens que podem chegar simultaneamente, é necessário abrir várias portas para a aplicação. No entanto, a melhor maneira de garantir a saúde da aplicação é controlar a quantidade de conexões que chegam no backend. Isso permite que a aplicação tenha tempo para realizar todo o processamento internamente e responder a todas as requisições com sucesso.
 
-```json
-events {
-  use epoll;
-  worker_connections 10;
-}
-```
+
+    events {
+      use epoll;
+      worker_connections 10;
+    }
+
 **epoll** é um mecanismo de I/O que o Nginx pode usar para lidar com muitas conexões simultâneas de forma eficiente. Essa diretiva especifica que o Nginx deve usar o mecanismo epoll para manipulação de eventos.
 
 **worker_connections 10:** Esta diretiva define o número máximo de conexões simultâneas que um único processo worker do Nginx pode manipular.
